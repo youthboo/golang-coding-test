@@ -8,7 +8,7 @@ import (
 	"strings"
 )
 
-func uniqueUnionDifference(arr1, arr2 []string) ([]string, []string) {
+func findUnionAndDifference(arr1, arr2 []string) ([]string, []string) {
 	set := make(map[string]bool)
 	difference := []string{}
 
@@ -65,9 +65,9 @@ func main() {
 	arr1 := getInputArray("กรุณาใส่ค่า array 1 (คั่นด้วย comma เช่น a,b,c): ")
 	arr2 := getInputArray("กรุณาใส่ค่า array 2 (คั่นด้วย comma เช่น b,c,d): ")
 
-	union, difference := uniqueUnionDifference(arr1, arr2)
+	union, uniqueDifference := findUnionAndDifference(arr1, arr2)
 
 	fmt.Println("\nผลลัพธ์:")
-	fmt.Println("รวมข้อมูลโดยไม่มีข้อมูลซ้ำ:", union)
-	fmt.Println("รวมข้อมูลที่รับเข้าด้วยกันโดยตัดข้อมูลซ้ำ:", difference)
+	fmt.Println("รวมข้อมูลโดยไม่มีข้อมูลซ้ำ:", "["+strings.Join(union, ",")+"]")
+	fmt.Println("รวมข้อมูลที่รับเข้าด้วยกันโดยตัดข้อมูลซ้ำ:", "["+strings.Join(uniqueDifference, ",")+"]")
 }
